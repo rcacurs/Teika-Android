@@ -118,7 +118,7 @@ public class Teika extends AppCompatActivity implements BedditResultListener {
             this.runOnUiThread(new Runnable() {
                                    public void run() {
                                        //Toast.makeText(getApplicationContext(), "Please check patient", Toast.LENGTH_SHORT).show();
-                                       inactivityView.setBackgroundColor(Color.GREEN);
+                                       inactivityView.setBackgroundColor(Color.parseColor("#33E280"));
                                    }
                                }
             );
@@ -144,7 +144,7 @@ public class Teika extends AppCompatActivity implements BedditResultListener {
             this.runOnUiThread(new Runnable() {
                                    public void run() {
                                        Toast.makeText(getApplicationContext(), "Please check patient", Toast.LENGTH_SHORT).show();
-                                       inactivityView.setBackgroundColor(Color.RED);
+                                       inactivityView.setBackgroundColor(Color.parseColor("#E93E45"));
                                        pushPebbleNotification();
                                    }
                                }
