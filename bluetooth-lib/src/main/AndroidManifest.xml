@@ -1,0 +1,14 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="lv.edi.BluetoothLib">
+    <uses-permission
+        android:name="android.permission.BLUETOOTH"
+        />
+    <uses-permission
+        android:name="android.permission.BLUETOOTH_ADMIN"
+        />
+    <application>
+        <activity android:name="lv.edi.BluetoothLib.DeviceListActivity" android:label="@string/bt_device_select">
+
+        </activity>
+    </application>
+
+</manifest>

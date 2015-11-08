@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">TeikaAndroid</string>
+    <string name="title_activity_teika">Teika</string>
+
+    <string name="info">Application for detecting patients sleep activity</string>
+    <string name="pref_title_bt_device">BT device</string>
+    <string name="pref_summary_bluetooth_target">Device name: </string>
+    <string name="toast_bt_not_supported">Bluetooth not supported for this device</string>
+    <string name="action_settings">Settings</string>
+</resources>

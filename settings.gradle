@@ -1,0 +1,1 @@
+include ':app', ':smartwear-processing-lib', ':bluetooth-lib'

@@ -1,0 +1,22 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- NOTE: EditTextPreference accepts EditText attributes. -->
+    <!-- NOTE: EditTextPreference's summary should be set to its value by the activity code. -->
+    <Preference
+        android:key="pref_bluetooth_target"
+        android:title="@string/pref_title_bt_device"
+        android:defaultValue="none"
+        android:maxLines="1" />
+    <EditTextPreference
+        android:key="inactivity_threshold"
+        android:title="Inactivity time threshold [ms]"
+        android:defaultValue="5000"
+        android:digits="0123456789"/>
+
+
+    <!-- NOTE: Hide buttons to simplify the UI. Users can touch outside the dialog to
+         dismiss it. -->
+
+
+
+</PreferenceScreen>
