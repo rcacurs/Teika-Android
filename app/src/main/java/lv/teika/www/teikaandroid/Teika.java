@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,12 +31,13 @@ public class Teika extends AppCompatActivity implements BedditResultListener {
     private int previous2 = 0;
     private int delta1 = 0;
     private int delta2 = 0;
+    ImageView inactivityView;
     TextView inactivityTimeView;
     Vibrator v;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_teika);
+        setContentView(R.layout.content_main);
         res = getResources();
 
         app = (TeikaApplication)getApplication();
@@ -60,10 +62,11 @@ public class Teika extends AppCompatActivity implements BedditResultListener {
 
         app.bedditService.setBeditResultListener(this);
         app.lastActivityTime = System.currentTimeMillis();
-        inactivityTimeView = (TextView)findViewById(R.id.inactivity_time);
+        inactivityView = (ImageView)findViewById(R.id.icon1);
+        inactivityTimeView = (TextView)findViewById(R.id.secondLine1);
 
         v = (Vibrator) this.getSystemService(Context.VIBRATOR_SERVICE);
-        pushPebbleNotification();
+        //pushPebbleNotification();
 
     }
 
@@ -114,8 +117,8 @@ public class Teika extends AppCompatActivity implements BedditResultListener {
 
             this.runOnUiThread(new Runnable() {
                                    public void run() {
-                                       Toast.makeText(getApplicationContext(), "Please check patient", Toast.LENGTH_SHORT).show();
-                                       inactivityTimeView.setBackgroundColor(Color.GREEN);
+                                       //Toast.makeText(getApplicationContext(), "Please check patient", Toast.LENGTH_SHORT).show();
+                                       inactivityView.setBackgroundColor(Color.GREEN);
                                    }
                                }
             );
@@ -127,7 +130,7 @@ public class Teika extends AppCompatActivity implements BedditResultListener {
         long currentTime = System.currentTimeMillis();
         final long deltaTime = currentTime - app.lastActivityTime;
 
-        inactivityTimeView.post(new Runnable() {
+        inactivityView.post(new Runnable() {
             public void run() {
                 inactivityTimeView.setText(String.format("%.1f",((float)deltaTime/1000)));
             }
@@ -141,14 +144,14 @@ public class Teika extends AppCompatActivity implements BedditResultListener {
             this.runOnUiThread(new Runnable() {
                                    public void run() {
                                        Toast.makeText(getApplicationContext(), "Please check patient", Toast.LENGTH_SHORT).show();
-                                       inactivityTimeView.setBackgroundColor(Color.RED);
+                                       inactivityView.setBackgroundColor(Color.RED);
                                        pushPebbleNotification();
                                    }
                                }
             );
-            }
-
         }
+
+    }
 
     @Override
     public void onDestroy()

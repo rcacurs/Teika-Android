@@ -1,0 +1,355 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="?android:attr/listPreferredItemHeight"
+    android:padding="6dip"
+    android:id="@+id/relativeLayout">
+
+    <ImageView
+        android:id="@+id/icon1"
+        android:layout_width="94px"
+        android:layout_height="94px"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="6dip"
+        android:contentDescription="TODO"
+        android:background="#FFFF00"/>
+
+    <TextView
+        android:id="@+id/secondLine1"
+        android:layout_width="fill_parent"
+        android:layout_height="26dip"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@id/icon1"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        android:text="Description"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/firstLine1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/secondLine1"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignWithParentIfMissing="true"
+        android:layout_toRightOf="@id/icon1"
+        android:gravity="center_vertical"
+        android:text="Jammu Rekiaro"
+        android:textSize="16sp" />
+
+</RelativeLayout>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="?android:attr/listPreferredItemHeight"
+        android:padding="6dip"
+        android:layout_below="@+id/relativeLayout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/relativeLayout2">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="94px"
+            android:layout_height="94px"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="6dip"
+            android:contentDescription="TODO" />
+
+        <TextView
+            android:id="@+id/secondLine2"
+            android:layout_width="fill_parent"
+            android:layout_height="26dip"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@+id/imageView2"
+            android:ellipsize="marquee"
+            android:singleLine="true"
+            android:text="Description"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/firstLine2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/secondLine2"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignWithParentIfMissing="true"
+            android:layout_toRightOf="@+id/imageView2"
+            android:gravity="center_vertical"
+            android:text="Roger Soukka"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="?android:attr/listPreferredItemHeight"
+        android:padding="6dip"
+        android:layout_below="@+id/relativeLayout2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/relativeLayout3">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="94px"
+            android:layout_height="94px"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="6dip"
+            android:contentDescription="TODO" />
+
+        <TextView
+            android:id="@+id/secondLine3"
+            android:layout_width="fill_parent"
+            android:layout_height="26dip"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@+id/imageView3"
+            android:ellipsize="marquee"
+            android:singleLine="true"
+            android:text="Description"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/firstLine3"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/secondLine3"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignWithParentIfMissing="true"
+            android:layout_toRightOf="@+id/imageView3"
+            android:gravity="center_vertical"
+            android:text="Romina Havukoski"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="?android:attr/listPreferredItemHeight"
+        android:padding="6dip"
+        android:layout_below="@+id/relativeLayout3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/relativeLayout4">
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="94px"
+            android:layout_height="94px"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="6dip"
+            android:contentDescription="TODO" />
+
+        <TextView
+            android:id="@+id/secondLine4"
+            android:layout_width="fill_parent"
+            android:layout_height="26dip"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@+id/imageView4"
+            android:ellipsize="marquee"
+            android:singleLine="true"
+            android:text="Description"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/firstLine4"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/secondLine4"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignWithParentIfMissing="true"
+            android:layout_toRightOf="@+id/imageView4"
+            android:gravity="center_vertical"
+            android:text="Iida-Linda Kopra"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="?android:attr/listPreferredItemHeight"
+        android:padding="6dip"
+        android:layout_below="@+id/relativeLayout4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/relativeLayout5">
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="94px"
+            android:layout_height="94px"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="6dip"
+            android:contentDescription="TODO" />
+
+        <TextView
+            android:id="@+id/secondLine5"
+            android:layout_width="fill_parent"
+            android:layout_height="26dip"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@+id/imageView5"
+            android:ellipsize="marquee"
+            android:singleLine="true"
+            android:text="Description"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/firstLine5"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/secondLine5"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignWithParentIfMissing="true"
+            android:layout_toRightOf="@+id/imageView5"
+            android:gravity="center_vertical"
+            android:text="Camill Lipponen"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="?android:attr/listPreferredItemHeight"
+        android:padding="6dip"
+        android:layout_below="@+id/relativeLayout5"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/relativeLayout6">
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="94px"
+            android:layout_height="94px"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="6dip"
+            android:contentDescription="TODO" />
+
+        <TextView
+            android:id="@+id/secondLine6"
+            android:layout_width="fill_parent"
+            android:layout_height="26dip"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@+id/imageView6"
+            android:ellipsize="marquee"
+            android:singleLine="true"
+            android:text="Description"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/firstLine6"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/secondLine6"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignWithParentIfMissing="true"
+            android:layout_toRightOf="@+id/imageView6"
+            android:gravity="center_vertical"
+            android:text="Antti-Ville Ranne"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="?android:attr/listPreferredItemHeight"
+        android:padding="6dip"
+        android:layout_below="@+id/relativeLayout6"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/relativeLayout7">
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="94px"
+            android:layout_height="94px"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="6dip"
+            android:contentDescription="TODO" />
+
+        <TextView
+            android:id="@+id/secondLine7"
+            android:layout_width="fill_parent"
+            android:layout_height="26dip"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@+id/imageView7"
+            android:ellipsize="marquee"
+            android:singleLine="true"
+            android:text="Description"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/firstLine7"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/secondLine7"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignWithParentIfMissing="true"
+            android:layout_toRightOf="@+id/imageView7"
+            android:gravity="center_vertical"
+            android:text="Gottfrid Pukkila"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="?android:attr/listPreferredItemHeight"
+        android:padding="6dip"
+        android:layout_below="@+id/relativeLayout7"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/relativeLayout8">
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="94px"
+            android:layout_height="94px"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="6dip"
+            android:contentDescription="TODO" />
+
+        <TextView
+            android:id="@+id/secondLine8"
+            android:layout_width="fill_parent"
+            android:layout_height="26dip"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@+id/imageView8"
+            android:ellipsize="marquee"
+            android:singleLine="true"
+            android:text="Description"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/firstLine8"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/secondLine8"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignWithParentIfMissing="true"
+            android:layout_toRightOf="@+id/imageView8"
+            android:gravity="center_vertical"
+            android:text="Maj-Britt Sipila"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+</RelativeLayout>
