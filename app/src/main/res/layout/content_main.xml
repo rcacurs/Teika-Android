@@ -7,8 +7,8 @@
     android:layout_height="?android:attr/listPreferredItemHeight"
     android:id="@+id/relativeLayoutHeader">
     <ImageView
-        android:layout_width="900px"
-        android:layout_height="140px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:src="@mipmap/header"
         android:background="#88D3DF" />
 </RelativeLayout>
