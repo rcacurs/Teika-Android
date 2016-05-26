@@ -36,6 +36,7 @@ public class Teika extends AppCompatActivity implements BedditResultListener, Bl
     private int previous2 = 0;
     private int delta1 = 0;
     private int delta2 = 0;
+    boolean inactivityTrigger = true;
     ImageView inactivityView;
     TextView inactivityTimeView;
     Vibrator v;
@@ -132,10 +133,11 @@ public class Teika extends AppCompatActivity implements BedditResultListener, Bl
         delta1=preveious1-data[0];
         delta2=previous2-data[1];
         Log.d("BEDDIT_ACITIVY", "DELTA: "+delta1+" "+delta2);
+
         if(Math.abs(delta1)>app.movementTriggerThreshold){
             Log.d("MOVEMENT_OVER_THRESHOLD", "TRUE");
             app.lastActivityTime = System.currentTimeMillis();
-
+            inactivityTrigger=true;
             this.runOnUiThread(new Runnable() {
                                    public void run() {
                                        //Toast.makeText(getApplicationContext(), "Please check patient", Toast.LENGTH_SHORT).show();
@@ -153,32 +155,44 @@ public class Teika extends AppCompatActivity implements BedditResultListener, Bl
 
         inactivityView.post(new Runnable() {
             public void run() {
-                inactivityTimeView.setText(String.format("%.1f",((float)deltaTime/1000)));
+                inactivityTimeView.setText(String.format("in %.1f seconds",Math.max((app.passivnesTimeThreshold-(float)deltaTime)/1000,0)));
             }
         });
 
+        if(deltaTime>app.passivnesTimeThreshold*0.8 && deltaTime<=app.passivnesTimeThreshold){
+            this.runOnUiThread(new Runnable() {
+                public void run() {
+                    inactivityView.setBackgroundColor(Color.parseColor("#FAC012"));
 
+                }
+            }
+            );
+        }
         if(deltaTime>app.passivnesTimeThreshold){
             Log.d("NOT_ACTIVE", "TRUE");
-            app.lastActivityTime=currentTime;
-            v.vibrate(500);
+            //app.lastActivityTime=currentTime;
             this.runOnUiThread(new Runnable() {
                                    public void run() {
-                                       Toast.makeText(getApplicationContext(), "Please check patient", Toast.LENGTH_SHORT).show();
+
                                        inactivityView.setBackgroundColor(Color.parseColor("#E93E45"));
-                                       pushPebbleNotification();
+                                       if(inactivityTrigger) {
+                                           v.vibrate(500);
+                                           inactivityTrigger=false;
+                                           pushPebbleNotification();
+                                           Toast.makeText(getApplicationContext(), "Please check patient", Toast.LENGTH_SHORT).show();
+                                       }
+
                                    }
                                }
             );
         }
-
     }
 
     @Override
     public void onDestroy()
     {
         super.onDestroy();
-        app.bedditService.disconnectDevice();
+        //app.bedditService.disconnectDevice();
     }
 
     // Function for notification pushing on Pebble
@@ -226,4 +240,5 @@ public class Teika extends AppCompatActivity implements BedditResultListener, Bl
             }
         });
     }
+
 }
