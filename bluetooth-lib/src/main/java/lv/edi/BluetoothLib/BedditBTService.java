@@ -49,6 +49,10 @@ public class BedditBTService {
     public void setBeditResultListener(BedditResultListener listener){
         resultListener=listener;
     }
+    public void setBtEventLister(BluetoothEventListener listener){
+        btEventListener=listener;
+
+    }
 
     public void connectDevice(BluetoothDevice device){
         mDevice = device;
@@ -134,9 +138,13 @@ public class BedditBTService {
                 mInputStream = socket.getInputStream(); // creating input stream from socket
                 mOutputStream = socket.getOutputStream(); // outputStream
                 Log.d("ReceiveThread", "StreamCreated");
+                if(btEventListener!=null){
+                    btEventListener.onBluetoothDeviceConnected();
+                }
             } catch (IOException ex){
                 Log.e("Receive Thread","Could not create stream");
                 isConnected=false;
+                return;
             }
             byte[] message = "START 3\n".getBytes();
             try {

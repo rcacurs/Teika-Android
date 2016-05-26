@@ -2,22 +2,12 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@drawable/lines">
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="?android:attr/listPreferredItemHeight"
-    android:id="@+id/relativeLayoutHeader">
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/header"
-        android:background="#88D3DF" />
-</RelativeLayout>
+
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
         android:layout_height="?android:attr/listPreferredItemHeight"
         android:padding="6dip"
-        android:layout_below="@+id/relativeLayoutHeader"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:id="@+id/relativeLayout2">

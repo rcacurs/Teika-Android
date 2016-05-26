@@ -5,9 +5,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Vibrator;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,8 +26,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import lv.edi.BluetoothLib.BedditResultListener;
+import lv.edi.BluetoothLib.BluetoothEventListener;
 
-public class Teika extends AppCompatActivity implements BedditResultListener {
+public class Teika extends AppCompatActivity implements BedditResultListener, BluetoothEventListener {
     final int REQUEST_ENABLE_BT = 1;
     private TeikaApplication app;
     private Resources res;
@@ -34,11 +39,25 @@ public class Teika extends AppCompatActivity implements BedditResultListener {
     ImageView inactivityView;
     TextView inactivityTimeView;
     Vibrator v;
+    MenuItem btMenu;
+    Drawable btConnecting;
+    Drawable btConnected;
+    Drawable btDisconnected;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_main);
         res = getResources();
+        btConnected = res.getDrawable(R.drawable.check, null);
+        btConnecting = res.getDrawable(R.drawable.loading, null);
+        btDisconnected = res.getDrawable(R.drawable.not, null);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#88D3DF")));
+        actionBar.setDisplayShowTitleEnabled(false);
+        Drawable icon = res.getDrawable(R.mipmap.header, null);
+        actionBar.setLogo(icon);
+        actionBar.setDisplayUseLogoEnabled(true);
+        actionBar.setDisplayShowHomeEnabled(true);
 
         app = (TeikaApplication)getApplication();
         app.btAdapter = BluetoothAdapter.getDefaultAdapter();
@@ -61,6 +80,7 @@ public class Teika extends AppCompatActivity implements BedditResultListener {
         }
 
         app.bedditService.setBeditResultListener(this);
+        app.bedditService.setBtEventLister(this);
         app.lastActivityTime = System.currentTimeMillis();
         inactivityView = (ImageView)findViewById(R.id.icon1);
         inactivityTimeView = (TextView)findViewById(R.id.secondLine1);
@@ -74,6 +94,7 @@ public class Teika extends AppCompatActivity implements BedditResultListener {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_teika, menu);
+        btMenu = menu.findItem(R.id.action_connectbt);
         return true;
     }
 
@@ -175,5 +196,34 @@ public class Teika extends AppCompatActivity implements BedditResultListener {
         i.putExtra("sender", "PebbleKit Android");
         i.putExtra("notificationData", notificationData);
         sendBroadcast(i);
+    }
+
+    public void onBluetoothDeviceConnecting(){
+        runOnUiThread(new Runnable() {
+            public void run() {
+                if (btMenu != null) {
+                    btMenu.setIcon(btConnecting);
+                }
+            }
+        });
+    }
+    public void onBluetoothDeviceConnected(){
+        runOnUiThread(new Runnable() {
+            public void run() {
+                if (btMenu != null) {
+                    btMenu.setIcon(btConnected);
+                }
+            }
+        });
+
+    }
+    public void onBluetoothDeviceDisconnected(){
+        runOnUiThread(new Runnable() {
+            public void run() {
+                if (btMenu != null) {
+                    btMenu.setIcon(btDisconnected);
+                }
+            }
+        });
     }
 }
