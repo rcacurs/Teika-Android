@@ -152,10 +152,14 @@ public class Teika extends AppCompatActivity implements BedditResultListener, Bl
         // check current time
         long currentTime = System.currentTimeMillis();
         final long deltaTime = currentTime - app.lastActivityTime;
-
+        final float inactivitySeconds = Math.max((app.passivnesTimeThreshold-(float)deltaTime)/1000,0);
         inactivityView.post(new Runnable() {
             public void run() {
-                inactivityTimeView.setText(String.format("in %.1f seconds",Math.max((app.passivnesTimeThreshold-(float)deltaTime)/1000,0)));
+                if(inactivitySeconds >0.0) {
+                    inactivityTimeView.setText(String.format("in %.1f seconds", inactivitySeconds));
+                } else{
+                    inactivityTimeView.setText("please attend this patient");
+                }
             }
         });
 
